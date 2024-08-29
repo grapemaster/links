@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grape Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #e0e0e0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: black;
+            background-color: #bb86fc;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a .material-icons-outlined {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        a:hover {
+            background-color: #9b67d1;
+            transform: scale(1.05);
+        }
+
+        .dark-mode-toggle {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #555;
+        }
+
+        .light-mode {
+            background-color: #f4f4f4;
+            color: #000;
+        }
+
+        .light-mode .container {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode a {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .light-mode a:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            a {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+
+            .material-icons-outlined {
+                font-size: 20px;
+            }
+
+            .dark-mode-toggle {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .logo img {
+                max-width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="grape.png" alt="Logo">
+        </div>
+        <a href="http://discord.gg/grapedao" target="_blank">
+            <span class="material-icons-outlined">chat</span>Join Our Discord
+        </a>
+        <a href="https://grapes.network/" target="_blank">
+            <span class="material-icons-outlined">language</span>Visit Our Website
+        </a>
+        <a href="https://grape-governance.gitbook.io/" target="_blank">
+            <span class="material-icons-outlined">info</span>Documentation
+        </a>
+        <a href="https://www.governance.so/" target="_blank">
+            <span class="material-icons-outlined">gavel</span>Governance
+        </a>
+        <a href="https://grape.art" target="_blank">
+            <span class="material-icons-outlined">color_lens</span>Grape Art
+        </a>
+        <a href="https://dao.grapenetwork.org/" target="_blank">
+            <span class="material-icons-outlined">language</span>Discourse
+        </a>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            } else {
+                document.body.classList.remove('light-mode'); // Ensure dark mode by default
+            }
+        }
+    </script>
+</body>
+</html>
+
